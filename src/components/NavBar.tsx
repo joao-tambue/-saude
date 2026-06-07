@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "@tanstack/react-router"
 import { Icon } from "./Icon"
 
 const navLinks = ["Início", "Solução", "Módulos", "Impacto", "Parceiros"]
@@ -9,40 +10,44 @@ export function NavBar() {
   return (
     <nav className="bg-surface border-b border-border px-5 sm:px-6 lg:px-10 flex items-center justify-between h-16 relative z-50">
       <div className="flex items-center gap-2 lg:gap-3 min-w-0">
-        <div className="flex items-center gap-2 shrink-0">
+        <Link to="/" className="flex items-center gap-2 shrink-0">
           <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
             <Icon name="shield-check" size={18} className="text-primary-foreground" />
           </div>
           <span className="font-headings font-semibold text-base text-foreground tracking-tight">
             +Saúde
           </span>
-        </div>
+        </Link>
         <div className="hidden lg:block w-px h-5 bg-border mx-1" />
         <span className="hidden lg:block text-sm text-muted-foreground truncate">
           Sistema Nacional de Prevenção de Surtos
         </span>
       </div>
 
-      {/* Desktop nav */}
       <div className="hidden lg:flex items-center gap-8">
         {navLinks.map((link, i) => (
-          <a
+          <Link
             key={link}
+            to="/"
             className={`text-sm font-medium ${i === 0 ? "text-primary" : "text-muted-foreground hover:text-foreground transition-colors"}`}
           >
             {link}
-          </a>
+          </Link>
         ))}
       </div>
 
       <div className="hidden sm:flex items-center gap-3">
-        <a className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Entrar</a>
+        <Link
+          to="/login"
+          className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Entrar
+        </Link>
         <button className="bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-md hover:opacity-90 transition-opacity whitespace-nowrap">
           Solicitar Demo
         </button>
       </div>
 
-      {/* Mobile hamburger */}
       <button
         className="lg:hidden flex items-center justify-center w-9 h-9 rounded-md hover:bg-muted transition-colors"
         onClick={() => setOpen(!open)}
@@ -55,29 +60,31 @@ export function NavBar() {
         </div>
       </button>
 
-      {/* Mobile menu overlay */}
       {open && (
         <>
           <div className="fixed inset-0 bg-foreground/20 backdrop-blur-sm lg:hidden z-40" onClick={() => setOpen(false)} />
-          <div className="absolute top-16 left-0 right-0 bg-surface border-b border-border shadow-sm lg:hidden z-50 animate-in slide-in-from-top-2">
+          <div className="absolute top-16 left-0 right-0 bg-surface border-b border-border shadow-sm lg:hidden z-50">
             <div className="px-5 py-4 flex flex-col gap-1">
               {navLinks.map((link, i) => (
-                <a
+                <Link
                   key={link}
+                  to="/"
                   className={`px-3 py-2.5 rounded-md text-sm font-medium transition-colors ${
-                    i === 0
-                      ? "text-primary bg-secondary"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    i === 0 ? "text-primary bg-secondary" : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   onClick={() => setOpen(false)}
                 >
                   {link}
-                </a>
+                </Link>
               ))}
               <hr className="my-2 border-border" />
-              <a className="px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground" onClick={() => setOpen(false)}>
+              <Link
+                to="/login"
+                className="px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground"
+                onClick={() => setOpen(false)}
+              >
                 Entrar
-              </a>
+              </Link>
               <button className="mt-1 bg-primary text-primary-foreground text-sm font-medium px-4 py-2.5 rounded-md hover:opacity-90 transition-opacity text-center">
                 Solicitar Demo
               </button>
