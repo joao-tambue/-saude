@@ -1,8 +1,18 @@
-import { createRouter, createRootRoute, createRoute } from "@tanstack/react-router"
+import { createRouter, createRootRoute, createRoute, Outlet } from "@tanstack/react-router"
 import { LandingPage } from "./pages/LandingPage"
-import { LoginPage } from "./pages/LoginPage"
+// import { LoginPage } from "./pages/LoginPage"
+import { TermsPage } from "./pages/TermsPage"
+import { PrivacyPage } from "./pages/PrivacyPage"
+import { CookieConsent } from "./components/CookieConsent"
 
-const rootRoute = createRootRoute()
+const rootRoute = createRootRoute({
+  component: () => (
+    <>
+      <Outlet />
+      <CookieConsent />
+    </>
+  ),
+})
 
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -10,13 +20,33 @@ const indexRoute = createRoute({
   component: LandingPage,
 })
 
-const loginRoute = createRoute({
+// const loginRoute = createRoute({
+//   getParentRoute: () => rootRoute,
+//   path: "/login",
+//   component: LoginPage,
+// })
+
+const termsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/login",
-  component: LoginPage,
+  path: "/termos",
+  component: TermsPage,
 })
 
-const routeTree = rootRoute.addChildren([indexRoute, loginRoute])
+const privacyRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/privacidade",
+  component: PrivacyPage,
+})
+
+const routeTree = rootRoute.addChildren
+(
+  [
+    indexRoute, 
+    // loginRoute, 
+    termsRoute, 
+    privacyRoute
+  ]
+)
 
 export const router = createRouter({ routeTree })
 

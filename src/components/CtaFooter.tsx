@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router"
 import toast from "react-hot-toast"
 import { Icon } from "./Icon"
 
@@ -49,17 +50,21 @@ export function Footer() {
           <div>
             <div className="text-sm font-semibold text-primary-foreground">+Saúde</div>
             <div className="text-[10px] sm:text-xs text-primary-foreground/40">
-              Sistema Inteligente de Prevenção de Surtos — Angola
+              Sistema Inteligente de Prevenção de Surtos — Lactus Tech
             </div>
           </div>
         </div>
         <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
           <a className="text-[10px] sm:text-xs text-primary-foreground/50 hover:text-primary-foreground/80 transition-colors">Ministério da Saúde de Angola</a>
-          <a className="text-[10px] sm:text-xs text-primary-foreground/50 hover:text-primary-foreground/80 transition-colors">Termos de Uso</a>
-          <a className="text-[10px] sm:text-xs text-primary-foreground/50 hover:text-primary-foreground/80 transition-colors">Privacidade</a>
+          <Link to="/termos" className="text-[10px] sm:text-xs text-primary-foreground/50 hover:text-primary-foreground/80 transition-colors">
+            Termos de Uso
+          </Link>
+          <Link to="/privacidade" className="text-[10px] sm:text-xs text-primary-foreground/50 hover:text-primary-foreground/80 transition-colors">
+            Privacidade
+          </Link>
         </div>
         <div className="text-[10px] sm:text-xs text-primary-foreground/30">
-          © 2025 +Saúde. Angola.
+          &copy; {new Date().getFullYear()} +Saúde. Angola.
         </div>
       </div>
     </footer>

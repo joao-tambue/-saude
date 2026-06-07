@@ -60,12 +60,12 @@ export function NavBar() {
       </div>
 
       <div className="hidden sm:flex items-center gap-3">
-        <Link
+        {/* <Link
           to="/login"
           className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
         >
           Entrar
-        </Link>
+        </Link> */}
         <button
           onClick={() => toast.error("Não disponivel no momento")}
           className="bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-md hover:opacity-90 transition-opacity whitespace-nowrap"
@@ -102,13 +102,13 @@ export function NavBar() {
                 </a>
               ))}
               <hr className="my-2 border-border" />
-              <Link
+              {/* <Link
                 to="/login"
                 className="px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground"
                 onClick={() => setOpen(false)}
               >
                 Entrar
-              </Link>
+              </Link> */}
               <button
                 onClick={() => { setOpen(false); toast.error("Não disponivel no momento") }}
                 className="mt-1 bg-primary text-primary-foreground text-sm font-medium px-4 py-2.5 rounded-md hover:opacity-90 transition-opacity text-center"
