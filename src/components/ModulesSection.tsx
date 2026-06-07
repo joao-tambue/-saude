@@ -47,7 +47,7 @@ const modules = [
 
 export function ModulesSection() {
   return (
-    <section className="bg-surface border-b border-border px-5 sm:px-6 lg:px-10 py-14 sm:py-20">
+    <section id="modulos" className="bg-surface border-b border-border px-5 sm:px-6 lg:px-10 py-14 sm:py-20">
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center gap-2 mb-4">
           <div className="w-4 h-0.5 bg-primary" />

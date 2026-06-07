@@ -1,3 +1,4 @@
+import toast from "react-hot-toast"
 import { Icon } from "./Icon"
 
 export function HeroSection() {
@@ -19,14 +20,20 @@ export function HeroSection() {
           angolanos — semanas antes de um surto se manifestar.
         </p>
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10">
-          <button className="bg-primary text-primary-foreground text-sm font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+          <button
+            onClick={() => toast.error("Não disponivel no momento")}
+            className="bg-primary text-primary-foreground text-sm font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+          >
             Ver Demo ao Vivo
             <Icon name="arrow-right" size={16} />
           </button>
-          <a className="text-sm font-medium text-foreground flex items-center justify-center gap-2 hover:text-primary transition-colors">
+          <button
+            onClick={() => toast.error("Não disponivel no momento")}
+            className="text-sm font-medium text-foreground flex items-center justify-center gap-2 hover:text-primary transition-colors"
+          >
             <Icon name="play-circle" size={16} />
             Ver Apresentação
-          </a>
+          </button>
         </div>
         <div className="flex sm:flex-row flex-wrap items-center gap-5 sm:gap-8 pt-5 sm:pt-6 border-t border-border">
           {[
@@ -50,7 +57,6 @@ export function HeroSection() {
       </div>
       <div className="flex-1 w-full relative pt-0 lg:pt-8">
         <div className="bg-background border border-border rounded-lg lg:rounded-b-none overflow-hidden">
-          {/* Terminal bar */}
           <div className="bg-angola-black px-4 sm:px-5 py-3 flex items-center gap-3 border-b border-border">
             <div className="flex gap-1.5">
               <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-accent-red opacity-70" />
@@ -63,7 +69,6 @@ export function HeroSection() {
               </div>
             </div>
           </div>
-          {/* Dashboard content */}
           <div className="p-3 sm:p-5 bg-background">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4">
               <span className="text-xs sm:text-sm font-semibold text-foreground">

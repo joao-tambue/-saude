@@ -1,8 +1,9 @@
+import toast from "react-hot-toast"
 import { Icon } from "./Icon"
 
 export function CtaSection() {
   return (
-    <section className="bg-primary px-5 sm:px-6 lg:px-10 py-14 sm:py-20">
+    <section id="impacto" className="bg-primary px-5 sm:px-6 lg:px-10 py-14 sm:py-20">
       <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-12 text-center lg:text-left">
         <div className="max-w-lg">
           <div className="text-primary-foreground/70 text-xs sm:text-sm font-medium mb-2 sm:mb-3 uppercase tracking-widest">
@@ -17,14 +18,20 @@ export function CtaSection() {
           </p>
         </div>
         <div className="flex flex-col gap-3 shrink-0 w-full sm:w-auto">
-          <button className="bg-primary-foreground text-primary text-sm font-semibold px-8 py-3.5 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+          <button
+            onClick={() => toast.error("Não disponivel no momento")}
+            className="bg-primary-foreground text-primary text-sm font-semibold px-8 py-3.5 rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+          >
             Solicitar Demonstração
             <Icon name="arrow-right" size={16} />
           </button>
-          <a className="text-primary-foreground/80 text-xs sm:text-sm text-center flex items-center justify-center gap-1.5 hover:text-primary-foreground transition-colors">
+          <button
+            onClick={() => toast.error("Não disponivel no momento")}
+            className="text-primary-foreground/80 text-xs sm:text-sm text-center flex items-center justify-center gap-1.5 hover:text-primary-foreground transition-colors"
+          >
             <Icon name="download" size={14} />
             Descarregar Dossier Técnico
-          </a>
+          </button>
         </div>
       </div>
     </section>
@@ -33,7 +40,7 @@ export function CtaSection() {
 
 export function Footer() {
   return (
-    <footer className="bg-angola-black px-5 sm:px-6 lg:px-10 py-8 sm:py-10">
+    <footer id="parceiros" className="bg-angola-black px-5 sm:px-6 lg:px-10 py-8 sm:py-10">
       <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center lg:items-center justify-between gap-6 lg:gap-0 text-center lg:text-left">
         <div className="flex items-center gap-3">
           <div className="w-7 h-7 bg-primary rounded-md flex items-center justify-center shrink-0">
