@@ -3,10 +3,7 @@ import { Icon } from "./Icon"
 
 const COOKIE_CONSENT_KEY = "maisaude_cookie_consent"
 
-type ConsentChoice = "accepted" | "rejected" | null
-
 export function CookieConsent() {
-  const [consent, setConsent] = useState<ConsentChoice>(null)
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -18,20 +15,18 @@ export function CookieConsent() {
 
   const handleAccept = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, "accepted")
-    setConsent("accepted")
     setVisible(false)
   }
 
   const handleReject = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, "rejected")
-    setConsent("rejected")
     setVisible(false)
   }
 
   if (!visible) return null
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-5">
+    <div className="fixed inset-0 z-100 flex items-end sm:items-center justify-center p-0 sm:p-5">
       <div
         className="absolute inset-0 bg-foreground/30 backdrop-blur-sm"
         onClick={handleReject}
