@@ -47,41 +47,41 @@ const modules = [
 
 export function ModulesSection() {
   return (
-    <section className="bg-surface border-b border-border px-10 py-20">
+    <section className="bg-surface border-b border-border px-5 sm:px-6 lg:px-10 py-14 sm:py-20">
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center gap-2 mb-4">
           <div className="w-4 h-0.5 bg-primary" />
-          <span className="text-sm font-medium text-primary uppercase tracking-wide">
+          <span className="text-sm font-medium text-primary uppercase tracking-widest text-xs sm:text-sm">
             Como Funciona
           </span>
         </div>
-        <h2 className="font-headings text-3xl font-semibold text-foreground mb-3">
+        <h2 className="font-headings text-2xl sm:text-3xl font-semibold text-foreground mb-2 sm:mb-3">
           Seis módulos, um sistema integrado
         </h2>
-        <p className="text-base text-muted-foreground mb-12 max-w-xl leading-relaxed">
+        <p className="text-sm sm:text-base text-muted-foreground mb-10 sm:mb-12 max-w-xl leading-relaxed">
           Cada módulo opera de forma independente mas conectada, formando
           uma rede de prevenção nacional.
         </p>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {modules.map((m) => (
-            <div key={m.num} className="bg-background border border-border rounded-lg p-6 flex flex-col gap-4">
+            <div key={m.num} className="bg-background border border-border rounded-lg p-5 sm:p-6 flex flex-col gap-3 sm:gap-4 hover:border-primary/30 transition-colors">
               <div className="flex items-start justify-between">
-                <div className="w-10 h-10 bg-secondary rounded-md flex items-center justify-center">
-                  <Icon name={m.icon} size={20} className="text-primary" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 bg-secondary rounded-md flex items-center justify-center shrink-0">
+                  <Icon name={m.icon} size={18} className="text-primary" />
                 </div>
-                <span className="text-xs font-mono text-muted-foreground">{m.num}</span>
+                <span className="text-[10px] sm:text-xs font-mono text-muted-foreground">{m.num}</span>
               </div>
               <div>
-                <div className="font-headings text-base font-semibold text-foreground mb-2">
+                <div className="font-headings text-sm sm:text-base font-semibold text-foreground mb-1.5 sm:mb-2">
                   {m.title}
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   {m.desc}
                 </p>
               </div>
               <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
                 {m.tags.map((tag) => (
-                  <span key={tag} className="text-xs bg-input text-muted-foreground px-2 py-1 rounded-sm">
+                  <span key={tag} className="text-[10px] sm:text-xs bg-input text-muted-foreground px-2 py-1 rounded-sm">
                     {tag}
                   </span>
                 ))}
